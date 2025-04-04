@@ -75,7 +75,7 @@ const Navbar = ({ showSidebar, setShowSidebar }) => {
       {/* PANEL */}
       {status !== "" && (
         <div className="hidden md:block text-lg font-serif">
-          <span>Welcome to Blogify Platform</span>
+          <span>Welcome to Bloogy Blog</span>
           {status === "User" && <span className="ml-3">[ User Panel ]</span>}
           {status === "Publisher" && (
             <span className="ml-3">[ Publisher Panel ]</span>
