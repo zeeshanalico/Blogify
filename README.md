@@ -55,3 +55,19 @@ This project is licensed under the ISC License.
 
 ## Author
     Zeeshan Ali [https://www.linkedin.com/in/zeeshanalico]
+
+## Database Configuration
+
+### Setting Up MongoDB
+1. **Local Setup**: Install MongoDB on your local machine by following the [official MongoDB installation guide](https://docs.mongodb.com/manual/installation/).
+2. **Cloud Setup**: Alternatively, you can use a cloud-based MongoDB service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to create a free-tier cluster.
+
+### Configuring the Application
+1. Create a `.env` file in the `server` directory if it doesn't exist.
+2. Add the following line to the `.env` file, replacing `<your_connection_string>` with your MongoDB connection string:
+   ```
+   MONGODB_URI=<your_connection_string>
+   ```
+3. Ensure that your MongoDB instance is running and accessible from your application.
+
+With these steps, your application should be able to connect to the MongoDB database successfully.
