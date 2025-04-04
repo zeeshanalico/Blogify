@@ -32,10 +32,6 @@ const SimpleSidebar = ({ showSidebar, setShowSidebar }) => {
           <BiSolidCategoryAlt size={20} />
           <span>Categories</span>
         </Link>
-        <Link to={"/about-me"} onClick={closeSidebar} className={`${location.pathname.includes("/about-me") && "bg-blue-900"} transition-colors duration-500 ease-in-out mb-1 flex justify-start items-center gap-3 hover:bg-blue-900 py-2 rounded px-3`}>
-          <BsFillInfoCircleFill size={17} />
-          <span>About</span>
-        </Link>
       </ul>
     </div>
   );

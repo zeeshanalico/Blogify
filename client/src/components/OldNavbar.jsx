@@ -8,7 +8,7 @@ import { useSendLogoutMutation } from "../features/auth/authApiSlice";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { logout } from "../features/auth/authSlice";
-import axios from "axios";
+import axiosInstance from "../config/axiosInstance";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaCaretDown } from "react-icons/fa";
 
@@ -44,7 +44,7 @@ const Navbar = () => {
     try {
       setShowNavbar(false);
       setDropdownOpen(false);
-      const res = await axios.post("http://localhost:3000/auth/logout");
+      const res = await axiosInstance.post("/auth/logout");
       toast.success(res.data.message);
       dispatch(logout());
       navigate("/login");

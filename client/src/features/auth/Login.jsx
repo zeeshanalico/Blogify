@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
-import axios from "axios";
+import axiosInstance from "../../config/axiosInstance";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { BarLoader } from "react-spinners";
 
@@ -31,8 +31,7 @@ const Login = () => {
           email,
           password,
         };
-        const res = await axios.post("https://mern-blogify-server.vercel.app/auth/login", data, {withCredentials: true})
-        // const res = await axios.post("http://localhost:3000/auth/login", data, {withCredentials: true});
+        const res = await axiosInstance.post("/auth/login", data, {withCredentials: true});
         toast.success(res.data.message);
         dispatch(setCredentials(res.data.accessToken));
         setEmail("");

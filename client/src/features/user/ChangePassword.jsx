@@ -8,7 +8,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { logout } from "../auth/authSlice";
-import axios from "axios";
+import axiosInstance from "../../config/axiosInstance";
 
 const ChangePassword = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
@@ -58,7 +58,7 @@ const ChangePassword = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("https://mern-blogify-server.vercel.app/auth/logout");
+      const res = await axiosInstance.post("/auth/logout");
       dispatch(logout());
       // Clear the "jwt" cookie on the client side
       document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

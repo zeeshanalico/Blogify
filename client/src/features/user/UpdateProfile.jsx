@@ -5,7 +5,6 @@ import { useGetSingleUserQuery, useUpdateUserMutation } from "../user/userApi";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { BarLoader, BeatLoader } from "react-spinners";
-import axios from "axios";
 import { logout } from "../auth/authSlice";
 import { useDispatch } from "react-redux";
 import { FaRegEdit } from "react-icons/fa";
@@ -19,6 +18,7 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { v4 } from "uuid";
+import axiosInstance from "../../config/axiosInstance";
 
 const UpdateProfile = () => {
   const { slug } = useAuth();
@@ -68,7 +68,7 @@ const UpdateProfile = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("https://mern-blogify-server.vercel.app/auth/logout");
+      const res = await axiosInstance.post("/auth/logout");
       // toast.success(res.data.message);
       dispatch(logout());
       navigate("/login");

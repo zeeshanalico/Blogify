@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { logout } from "../features/auth/authSlice";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+import axiosInstance from "../config/axiosInstance";
 import { HiDotsVertical } from "react-icons/hi";
 
 const Navbar = ({ showSidebar, setShowSidebar }) => {
@@ -36,8 +36,7 @@ const Navbar = ({ showSidebar, setShowSidebar }) => {
   const handleLogout = async () => {
     try {
       setDropdownOpen(false);
-      const res = await axios.post("https://mern-blogify-server.vercel.app/auth/logout");
-      // const res = await axios.post("http://localhost:3000/auth/logout");
+      const res = await axiosInstance.post("/auth/logout");
       toast.success(res.data.message);
       dispatch(logout());
       navigate("/login");
@@ -198,14 +197,6 @@ const Navbar = ({ showSidebar, setShowSidebar }) => {
             }`}
           >
             Categories
-          </Link>
-          <Link
-            to="/about-me"
-            className={`${
-              location.pathname === "/about-me" ? "text-cyan-300" : ""
-            }`}
-          >
-            About
           </Link>
 
           <div className="flex  items-center mt-5 md:mt-0 gap-3 md:ml-5 ">

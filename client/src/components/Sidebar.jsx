@@ -6,7 +6,7 @@ import { FaComments, FaUsers } from "react-icons/fa";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
+import axiosInstance from "../config/axiosInstance";
 import { toast } from "react-toastify";
 import { logout } from "../features/auth/authSlice";
 import { useDispatch } from "react-redux";
@@ -28,7 +28,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
   const handleLogout = async () => {
     closeSidebar()
     try {
-      const res = await axios.post("https://mern-blogify-server.vercel.app/auth/logout");
+      const res = await axiosInstance.post("/auth/logout");
       toast.success(res.data.message);
       dispatch(logout());
       navigate("/login");
@@ -104,10 +104,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
           <AiFillSetting size={20} />
           <span>Settings</span>
         </Link>
-        <Link to={"/about-me"} onClick={closeSidebar} className={`${location.pathname.includes("/about-me") && "bg-blue-900"} transition-colors duration-500 ease-in-out mb-1 flex justify-start items-center gap-3 hover:bg-blue-900 py-2 rounded px-3`}>
-          <BsFillInfoCircleFill size={17} />
-          <span>About</span>
-        </Link>
+       
         <span onClick={handleLogout} className="transition-colors duration-500 ease-in-out mb-1 flex justify-start items-center gap-3 hover:bg-blue-900 py-2 rounded px-3">
           <LuLogOut size={20} />
           <span>Logout</span>
