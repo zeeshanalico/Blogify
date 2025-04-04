@@ -61,7 +61,7 @@ const Navbar = ({ showSidebar, setShowSidebar }) => {
     <nav className="z-20 flex justify-between items-center bg-[#162B56] text-white py-3 px-5 md:pl-20 md:pr-7  shadow-md shadow-gray-800 fixed w-full">
       {/* LOGO */}
       <div className="flex gap-4 md:gap-8 items-center flex-row-reverse md:flex-row">
-        <h2 className="text-2xl italic font-semibold font-sans">Blogify</h2>
+        <h2 className="text-2xl italic font-semibold font-sans">Bloogy Blog</h2>
         <span className="hidden md:block text-2xl">
           <GiHamburgerMenu />
         </span>

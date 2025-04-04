@@ -80,7 +80,7 @@ const Navbar = () => {
           )}
         </div>
         <div className="logo">
-          <Link to={"/"}>Blogify</Link>
+          <Link to={"/"}>Bloogy Blog </Link>
         </div>
         {status !== "" && (
           <div className="relative md:hidden ">

@@ -14,6 +14,7 @@ import { BarLoader, BeatLoader, ClipLoader } from "react-spinners";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { PiHandsClappingFill, PiHandsClappingLight } from "react-icons/pi";
+import { baseURL } from "../../config/axiosInstance";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -58,7 +59,7 @@ const SinglePost = () => {
   const { pathname } = useLocation();
   const [isLiked, setIsLiked] = useState(false);
 
-  const postURL = `https://tashfeen-blogify.vercel.app/posts/${slug}`;
+  const postURL = `${baseURL}/posts/${slug}`;
 
   // HANDLE VIEW POST
   useEffect(() => {
@@ -164,7 +165,7 @@ const SinglePost = () => {
 
   // const {posts} = recentPosts;
   const RecentPosts = recentPosts?.posts?.map((val) => {
-   
+
     const viewPost = async () => {
       navigate(`/posts/${val.slug}`);
       window.location.reload();

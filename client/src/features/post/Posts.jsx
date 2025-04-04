@@ -159,7 +159,7 @@ const Posts = () => {
         {/* HEADER */}
         <div className="bg-slate-50 shadow-md my-10 py-2 md:py-4 flex justify-center items-center flex-col mx-auto rounded-lg w-[94%] md:max-w-xl ">
           <Link className="text-sm" to={"/register"}>
-            Get started with <span className="font-bold italic">Blogify</span>
+            Get started with <span className="font-bold italic">Bloogy Blog</span>
           </Link>
           <h2 className="text-2xl md:text-3xl font-bold">
             What are you looking up-to?
