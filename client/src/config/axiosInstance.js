@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://blogy-blog-six.vercel.app',
 });
-export const baseURL = 'http://localhost:3001'
+export const baseURL = 'https://blogy-blog-six.vercel.app'
 export default axiosInstance; 
